@@ -46,8 +46,8 @@ var UNSURE = { id: 'unsure', name: 'Not sure yet', price: 0, inc: [] };
 
   // Build package, single-service and add-on options
   document.getElementById('packages').innerHTML = PACKAGES.map(function (p) {
-    return '<label class="opt"><input type="radio" name="package" value="' + p.id + '">' +
-      '<span class="opt-top"><span class="opt-name">' + esc(p.name) + (p.popular ? ' <span class="label" style="font-size:10px;letter-spacing:.2em">Popular</span>' : '') + '</span><span class="opt-price">' + fmt(p.price) + '</span></span>' +
+    return '<label class="opt' + (p.popular ? ' popular' : '') + '"><input type="radio" name="package" value="' + p.id + '">' +
+      '<span class="opt-top"><span class="opt-name">' + esc(p.name) + '</span><span class="opt-price">' + fmt(p.price) + '</span></span>' +
       '<span class="opt-desc">' + esc(p.desc) + '</span></label>';
   }).join('');
   document.getElementById('singles').innerHTML = SINGLES.map(function (p) {
@@ -120,7 +120,10 @@ var UNSURE = { id: 'unsure', name: 'Not sure yet', price: 0, inc: [] };
     var date = document.getElementById('date').value;
     document.getElementById('sum-when').textContent = date ? niceDate(date) + ', ' + timeSel.value : 'No date picked yet';
     document.getElementById('sum-access').textContent = 'Access: ' + access.toLowerCase();
-    document.getElementById('sum-total').textContent = pkg.id === 'unsure' ? (lines.length ? fmt(total) + '+' : 'TBC') : fmt(total);
+    var totalText = pkg.id === 'unsure' ? (lines.length ? fmt(total) + '+' : 'TBC') : fmt(total);
+    document.getElementById('sum-total').textContent = totalText;
+    var bar = document.getElementById('bar-total');
+    if (bar) { bar.textContent = totalText; document.getElementById('bar-name').textContent = pkg.name; }
 
     return { pkg: pkg, lines: lines, total: total, access: access, date: date, time: timeSel.value };
   }
@@ -151,6 +154,15 @@ var UNSURE = { id: 'unsure', name: 'Not sure yet', price: 0, inc: [] };
     return out.join('\n');
   }
 
+  // Hide the sticky mobile bar while the full order summary is on screen
+  var mobileBar = document.getElementById('mobile-bar');
+  var summaryEl = document.querySelector('.summary');
+  if (mobileBar && summaryEl && 'IntersectionObserver' in window) {
+    new IntersectionObserver(function (entries) {
+      mobileBar.classList.toggle('away', entries[0].isIntersecting);
+    }).observe(summaryEl);
+  }
+
   var errorEl = document.getElementById('form-error');
   var submitBtn = document.getElementById('submit');
 
@@ -177,6 +189,7 @@ var UNSURE = { id: 'unsure', name: 'Not sure yet', price: 0, inc: [] };
     var done = function () {
       document.getElementById('done-line').textContent = o.pkg.name + (o.pkg.id === 'unsure' ? '' : ', ' + fmt(o.total) + ' incl. GST') + '. Preferred ' + niceDate(o.date) + ', ' + o.time + '.';
       form.hidden = true;
+      var mb = document.getElementById('mobile-bar'); if (mb) mb.hidden = true;
       var d = document.getElementById('done'); d.hidden = false;
       d.querySelector('.done').focus();
       window.scrollTo({ top: 0, behavior: 'smooth' });

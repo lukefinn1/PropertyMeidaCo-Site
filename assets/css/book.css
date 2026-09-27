@@ -89,6 +89,24 @@ legend.card-head .step { font-size: 30px; }
 
 [hidden] { display: none !important; }
 
+/* "Most popular" tag on Signature */
+#packages { padding-top: 10px; }
+.opts-2#addons, .opts-3.singles { padding-top: 0; }
+.opt.popular::before { content: "Most popular"; position: absolute; top: -10px; left: 20px; background: var(--gold); color: var(--ink); font-size: 10px; font-weight: 600; letter-spacing: .2em; text-transform: uppercase; padding: 3px 8px; }
+.opts-3 { align-items: stretch; }
+
+/* Sticky total + submit on tablet and mobile */
+.mobile-bar { display: none; }
+@media (max-width: 1023px) {
+  .mobile-bar { display: flex; position: fixed; left: 0; right: 0; bottom: 0; z-index: 30; align-items: center; justify-content: space-between; gap: 16px; padding: 12px var(--pad) calc(12px + env(safe-area-inset-bottom)); background: var(--ink); color: var(--bone); border-top: 1px solid var(--gold); transition: transform .25s ease; }
+  .mobile-bar.away { transform: translateY(110%); }
+  .mobile-bar-total { display: flex; flex-direction: column; line-height: 1.15; }
+  .mobile-bar-total span { font-size: 11px; letter-spacing: .18em; text-transform: uppercase; color: var(--muted-dark); }
+  .mobile-bar-total strong { font-family: var(--serif); font-weight: 400; font-size: 28px; }
+  .mobile-bar .btn-gold { min-height: 50px; padding: 0 22px; }
+  body { padding-bottom: 80px; }
+}
+
 /* Laptop */
 @media (max-width: 1279px) {
   .book-layout { grid-template-columns: minmax(0, 1fr) 360px; }

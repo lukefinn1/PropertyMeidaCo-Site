@@ -24,3 +24,18 @@
     if (window.innerWidth >= 1024) setOpen(false);
   });
 })();
+
+// Singles / add-ons tabs (mobile only; both lists show side by side on larger screens)
+(function () {
+  var tabs = document.querySelectorAll('.tabs [role="tab"]');
+  if (!tabs.length) return;
+  tabs.forEach(function (tab) {
+    tab.addEventListener('click', function () {
+      tabs.forEach(function (t) {
+        var on = t === tab;
+        t.setAttribute('aria-selected', on ? 'true' : 'false');
+        document.getElementById(t.getAttribute('aria-controls')).classList.toggle('is-hidden', !on);
+      });
+    });
+  });
+})();
