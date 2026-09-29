@@ -46,13 +46,24 @@
 </div>
 
 <div class="acuity-layout wrap">
-  <section class="acuity-card" id="scheduler" aria-label="Booking calendar">
-    <p class="acuity-picked" id="picked" hidden></p>
-    <div id="acuity-slot">
-      <noscript><p>Booking needs JavaScript. <a href="https://app.acuityscheduling.com/schedule.php?owner=40512109">Open the booking page</a> instead.</p></noscript>
-    </div>
-    <p class="acuity-fallback">Calendar not loading? <a id="acuity-direct" href="https://app.acuityscheduling.com/schedule.php?owner=40512109" target="_blank" rel="noopener">Open the booking page in a new tab</a> or email <a href="mailto:luke@propertymediaco.com">luke@propertymediaco.com</a>.</p>
-  </section>
+  <div class="book-flow">
+    <section class="card" aria-labelledby="step1">
+      <h2 class="card-head" id="step1"><span class="step" aria-hidden="true">1</span>Choose a package or service</h2>
+      <div class="opts-3" id="packages" role="radiogroup" aria-label="Packages"></div>
+      <div class="sub-label">Single services</div>
+      <div class="opts-3 singles" id="singles" role="radiogroup" aria-label="Single services"></div>
+      <p class="hint">Add-ons like twilight, extra drone or virtual staging are added in the next step. All prices include GST.</p>
+    </section>
+
+    <section class="card acuity-card" id="scheduler" aria-labelledby="step2">
+      <h2 class="card-head" id="step2"><span class="step" aria-hidden="true">2</span><span id="step2-title">Pick a date and time</span></h2>
+      <p class="acuity-picked" id="picked" hidden></p>
+      <div id="acuity-slot">
+        <noscript><p>Booking needs JavaScript. <a href="https://app.acuityscheduling.com/schedule.php?owner=40512109">Open the booking page</a> instead.</p></noscript>
+      </div>
+      <p class="acuity-fallback">Calendar not loading? <a id="acuity-direct" href="https://app.acuityscheduling.com/schedule.php?owner=40512109" target="_blank" rel="noopener">Open it in a new tab</a> or email <a href="mailto:luke@propertymediaco.com">luke@propertymediaco.com</a>.</p>
+    </section>
+  </div>
 
   <aside class="acuity-aside on-dark">
     <h2 class="display">What happens next</h2>
