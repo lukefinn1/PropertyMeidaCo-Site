@@ -39,3 +39,23 @@
     });
   });
 })();
+
+// Sticky header and mobile Book button appear once the hero has scrolled away
+(function () {
+  var hero = document.querySelector('.hero');
+  var bar = document.getElementById('sticky-bar');
+  var fab = document.getElementById('book-fab');
+  var finalCta = document.querySelector('.final');
+  if (!hero || !('IntersectionObserver' in window)) return;
+  var pastHero = false, atEnd = false;
+  function apply() {
+    if (bar) {
+      bar.classList.toggle('show', pastHero);
+      bar.setAttribute('aria-hidden', pastHero ? 'false' : 'true');
+      bar.querySelectorAll('a').forEach(function (a) { a.tabIndex = pastHero ? 0 : -1; });
+    }
+    if (fab) fab.classList.toggle('show', pastHero && !atEnd);
+  }
+  new IntersectionObserver(function (e) { pastHero = !e[0].isIntersecting; apply(); }, { rootMargin: '-90px 0px 0px 0px', threshold: 0 }).observe(hero);
+  if (finalCta) new IntersectionObserver(function (e) { atEnd = e[0].isIntersecting; apply(); }).observe(finalCta);
+})();

@@ -92,7 +92,7 @@ legend.card-head .step { font-size: 30px; }
 /* "Most popular" tag on Signature */
 #packages { padding-top: 10px; }
 .opts-2#addons, .opts-3.singles { padding-top: 0; }
-.opt.popular::before { content: "Most popular"; position: absolute; top: -10px; left: 20px; background: var(--gold); color: var(--ink); font-size: 10px; font-weight: 600; letter-spacing: .2em; text-transform: uppercase; padding: 3px 8px; }
+.opt.popular::before { content: "Recommended"; position: absolute; top: -10px; left: 20px; background: var(--gold); color: var(--ink); font-size: 10px; font-weight: 600; letter-spacing: .2em; text-transform: uppercase; padding: 3px 8px; }
 .opts-3 { align-items: stretch; }
 
 /* Sticky total + submit on tablet and mobile */
