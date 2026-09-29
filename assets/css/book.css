@@ -134,38 +134,3 @@ legend.card-head .step { font-size: 30px; }
   .done { padding: 40px 24px; }
   .book-layout { padding-bottom: 72px; }
 }
-
-/* ---------- Acuity embed layout ---------- */
-.acuity-layout { display: grid; grid-template-columns: minmax(0, 1fr) 360px; gap: 32px; align-items: start; padding-bottom: 120px; }
-.book-flow { display: flex; flex-direction: column; gap: 24px; min-width: 0; }
-.acuity-card { min-width: 0; }
-h2.card-head { margin: 0; display: flex; align-items: baseline; gap: 14px; font-family: var(--serif); font-weight: 400; font-size: 30px; line-height: 1.15; }
-h2.card-head .step { font-size: 30px; }
-.acuity-frame { display: block; width: 100%; min-height: 760px; border: 0; }
-.acuity-picked { margin: 0; padding: 12px 16px; background: var(--stone); border-left: 2px solid var(--gold); font-size: 15px; }
-.acuity-fallback { margin: 0; font-size: 13.5px; color: var(--muted-2); }
-.acuity-aside { position: sticky; top: 24px; background: var(--ink); color: var(--bone); padding: 36px; outline: 1px solid var(--gold); outline-offset: -8px; display: flex; flex-direction: column; gap: 22px; }
-.acuity-aside h2 { font-size: 30px; }
-.next-steps { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; }
-.next-steps li { display: grid; grid-template-columns: 34px minmax(0, 1fr); gap: 10px; padding: 16px 0; border-top: 1px solid var(--line-dark); }
-.next-steps .num { font-size: 24px; }
-.next-steps b { font-size: 16px; font-weight: 600; }
-.next-steps p { margin: 4px 0 0; font-size: 14.5px; line-height: 1.55; color: var(--muted-dark); }
-.aside-foot { display: flex; flex-direction: column; gap: 2px; border-top: 1px solid var(--line-dark); padding-top: 16px; font-size: 14px; color: var(--muted-dark); }
-.aside-foot a { color: var(--gold); }
-@media (max-width: 1023px) {
-  .acuity-layout { grid-template-columns: minmax(0, 1fr); }
-  .acuity-aside { position: static; order: 2; padding: 28px; }
-  .next-steps { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: 24px; }
-}
-@media (max-width: 767px) {
-  .acuity-layout { padding-bottom: 64px; gap: 20px; }
-  .acuity-card { padding: 20px 8px; }
-  .acuity-card .card-head, .acuity-card .acuity-picked, .acuity-card .acuity-fallback { margin-left: 12px; margin-right: 12px; }
-  h2.card-head { font-size: 24px; }
-  .acuity-aside { padding: 22px 20px; gap: 14px; }
-  .acuity-aside h2 { font-size: 24px; }
-  .next-steps { grid-template-columns: minmax(0, 1fr); }
-  .next-steps li { padding: 10px 0; }
-  .next-steps p { display: none; }
-}
