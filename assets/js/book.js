@@ -186,6 +186,8 @@ var UNSURE = { id: 'unsure', name: 'Not sure yet', price: 0, inc: [] };
     document.getElementById('order-total').value = o.pkg.id === 'unsure' ? 'To confirm' : fmt(o.total);
     document.getElementById('subject').value = 'Booking request: ' + o.pkg.name + ', ' + form.elements.address.value;
 
+    try { document.dispatchEvent(new CustomEvent('booking:submitted', { detail: { package: o.pkg.id, value: o.pkg.id === 'unsure' ? 0 : o.total } })); } catch (err) {}
+
     var done = function () {
       document.getElementById('done-line').textContent = o.pkg.name + (o.pkg.id === 'unsure' ? '' : ', ' + fmt(o.total) + ' incl. GST') + '. Preferred ' + niceDate(o.date) + ', ' + o.time + '.';
       form.hidden = true;
