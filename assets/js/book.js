@@ -12,9 +12,9 @@ var BOOKING_EMAIL = 'luke@propertymediaco.com';
 
 /* Prices (GST included). Keep these in sync with index.html. */
 var PACKAGES = [
-  { id: 'essentials', name: 'Essentials', price: 495, desc: 'Unlimited photos, 10 drone photos, floor plan', inc: ['drone', 'floorplan'] },
-  { id: 'signature', name: 'Signature', price: 995, desc: 'Essentials plus a branded listing video, 4 virtual twilights and 5 rooms of virtual staging', inc: ['drone', 'floorplan', 'vtwi'], popular: true },
-  { id: 'prestige', name: 'Prestige', price: 1695, desc: 'Signature plus social reel, unlimited drone and staging, real twilight and your on-camera intro', inc: ['drone', 'floorplan', 'reel', 'vtwi', 'twilight', 'intro', 'staging'] }
+  { id: 'basic', name: 'Basic', price: 379, desc: 'Unlimited photos, floor plan and free clean-up. No drone', inc: ['floorplan'] },
+  { id: 'essentials', name: 'Essentials', price: 469, desc: 'Unlimited photos, 10 drone photos, floor plan', inc: ['drone', 'floorplan'], popular: true },
+  { id: 'signature', name: 'Signature', price: 995, desc: 'Essentials plus a branded listing video, 4 virtual twilights and 5 rooms of virtual staging', inc: ['drone', 'floorplan', 'vtwi'] }
 ];
 var SINGLES = [
   { id: 'photo20', name: 'Photos (up to 20)', price: 265, inc: [] },
@@ -63,7 +63,8 @@ var UNSURE = { id: 'unsure', name: 'Not sure yet', price: 0, inc: [] };
   var params = new URLSearchParams(location.search);
   var want = params.get('package');
   var all = PACKAGES.concat(SINGLES, [UNSURE]);
-  var start = all.some(function (p) { return p.id === want; }) ? want : (want === 'single' ? 'photo' : 'signature');
+  if (want === 'prestige') want = 'signature';
+  var start = all.some(function (p) { return p.id === want; }) ? want : (want === 'single' ? 'photo' : 'essentials');
   form.querySelector('input[name="package"][value="' + start + '"]').checked = true;
 
   // Dates: earliest is tomorrow
