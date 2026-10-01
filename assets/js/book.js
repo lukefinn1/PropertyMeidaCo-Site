@@ -26,7 +26,7 @@ var SINGLES = [
 ];
 var ADDONS = [
   { id: 'drone', name: '10 drone photos', price: 99 },
-  { id: 'floorplan', name: 'Floor plan', price: 129 },
+  { id: 'floorplan', name: 'Floor plan', price: 99 },
   { id: 'twilight', name: 'Real twilight shoot', price: 149 },
   { id: 'reel', name: 'Social reel (with video)', price: 199 },
   { id: 'intro', name: 'Agent intro and outro with voiceover', price: 149 },
