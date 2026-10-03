@@ -12,7 +12,7 @@ var BOOKING_EMAIL = 'luke@propertymediaco.com';
 
 /* Prices (GST included). Keep these in sync with index.html. */
 var PACKAGES = [
-  { id: 'basic', name: 'Basic', price: 379, desc: 'Unlimited photos, floor plan and free clean-up. No drone', inc: ['floorplan'] },
+  { id: 'basic', name: 'Basic', price: 350, desc: 'Unlimited photos, floor plan and free clean-up. No drone', inc: ['floorplan'] },
   { id: 'essentials', name: 'Essentials', price: 469, desc: 'Unlimited photos, 10 drone photos, floor plan', inc: ['drone', 'floorplan'], popular: true },
   { id: 'signature', name: 'Signature', price: 995, desc: 'Essentials plus a branded listing video, 4 virtual twilights and 5 rooms of virtual staging', inc: ['drone', 'floorplan', 'vtwi'] }
 ];
