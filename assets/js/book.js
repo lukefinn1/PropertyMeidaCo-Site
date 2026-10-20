@@ -10,31 +10,25 @@
 var FORM_ENDPOINT = 'https://formspree.io/f/YOUR_FORM_ID';
 var BOOKING_EMAIL = 'luke@propertymediaco.com';
 
-/* Prices (GST included). Keep these in sync with index.html. */
+/* Prices (GST included). Keep these in sync with index.html.
+   Drone and staging are one flat price per shoot, set by property size. */
 var PACKAGES = [
-  { id: 'basic', name: 'Basic', price: 350, desc: 'Unlimited photos, floor plan and free clean-up. No drone', inc: ['floorplan'] },
-  { id: 'essentials', name: 'Essentials', price: 469, desc: 'Unlimited photos, 10 drone photos, floor plan', inc: ['drone', 'floorplan'], popular: true },
-  { id: 'signature', name: 'Signature', price: 995, desc: 'Essentials plus a branded listing video, 4 virtual twilights and 5 rooms of virtual staging', inc: ['drone', 'floorplan', 'vtwi'] }
-];
-var SINGLES = [
-  { id: 'photo20', name: 'Photos (up to 20)', price: 265, inc: [] },
-  { id: 'photo', name: 'Photos (unlimited)', price: 329, inc: [] },
-  { id: 'dronesingle', name: 'Drone photos', price: 199, inc: ['drone'] },
-  { id: 'video', name: 'Listing video', price: 549, inc: [] },
-  { id: 'reelsingle', name: 'Social reel', price: 299, inc: ['reel'] },
-  { id: 'fpsingle', name: 'Floor plan', price: 149, inc: ['floorplan'] }
+  { id: 'small', name: '1–2 bedrooms', price: 249, desc: 'Unlimited photos and a 2D floor plan. Units, apartments and smaller homes', addon: { drone: 49, staging: 49 } },
+  { id: 'medium', name: '3–4 bedrooms', price: 319, desc: 'Unlimited photos and a 2D floor plan. Most family homes', addon: { drone: 59, staging: 79 }, popular: true },
+  { id: 'large', name: '5+ bedrooms', price: 419, desc: 'Unlimited photos and a 2D floor plan. Larger homes and estates', addon: { drone: 79, staging: 109 } }
 ];
 var ADDONS = [
-  { id: 'drone', name: '10 drone photos', price: 99 },
-  { id: 'floorplan', name: 'Floor plan', price: 99 },
-  { id: 'twilight', name: 'Real twilight shoot', price: 149 },
-  { id: 'reel', name: 'Social reel (with video)', price: 199 },
-  { id: 'intro', name: 'Agent intro and outro with voiceover', price: 149 },
-  { id: 'vtwi', name: '4 virtual twilight photos', price: 100 },
-  { id: 'staging', name: 'Virtual staging (1 extra room)', price: 25 },
+  { id: 'drone', name: 'Drone photos' },
+  { id: 'staging', name: 'Virtual staging and furniture removal (living areas and bedrooms)' },
   { id: 'travel', name: 'Outside Cairns (Port Douglas, Tablelands, Mission Beach)', price: 75 }
 ];
-var UNSURE = { id: 'unsure', name: 'Not sure yet', price: 0, inc: [] };
+var UNSURE = { id: 'unsure', name: 'Not sure yet', price: 0, addon: {} };
+
+/* Price of an add-on for the chosen size (null = depends on size, not chosen yet) */
+function addonPrice(a, pkg) {
+  if (a.price != null) return a.price;
+  return pkg.addon[a.id] != null ? pkg.addon[a.id] : null;
+}
 
 (function () {
   var form = document.getElementById('order');
@@ -44,27 +38,22 @@ var UNSURE = { id: 'unsure', name: 'Not sure yet', price: 0, inc: [] };
   var esc = function (s) { return String(s).replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); };
   var tick = '<span class="box" aria-hidden="true"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>';
 
-  // Build package, single-service and add-on options
+  // Build size and add-on options
   document.getElementById('packages').innerHTML = PACKAGES.map(function (p) {
     return '<label class="opt' + (p.popular ? ' popular' : '') + '"><input type="radio" name="package" value="' + p.id + '">' +
       '<span class="opt-top"><span class="opt-name">' + esc(p.name) + '</span><span class="opt-price">' + fmt(p.price) + '</span></span>' +
       '<span class="opt-desc">' + esc(p.desc) + '</span></label>';
   }).join('');
-  document.getElementById('singles').innerHTML = SINGLES.map(function (p) {
-    return '<label class="opt sm"><input type="radio" name="package" value="' + p.id + '">' +
-      '<span class="opt-name">' + esc(p.name) + '</span><span class="opt-price-sm">' + fmt(p.price) + '</span></label>';
-  }).join('');
   document.getElementById('addons').innerHTML = ADDONS.map(function (a) {
     return '<label class="chk" data-addon="' + a.id + '"><input type="checkbox" name="addon" value="' + a.id + '">' + tick +
-      '<span class="chk-name">' + esc(a.name) + '</span><span class="chk-price">+' + fmt(a.price) + '</span></label>';
+      '<span class="chk-name">' + esc(a.name) + '</span><span class="chk-price"></span></label>';
   }).join('');
 
   // Preselect from ?package=
   var params = new URLSearchParams(location.search);
   var want = params.get('package');
-  var all = PACKAGES.concat(SINGLES, [UNSURE]);
-  if (want === 'prestige') want = 'signature';
-  var start = all.some(function (p) { return p.id === want; }) ? want : (want === 'single' ? 'photo' : 'essentials');
+  var all = PACKAGES.concat([UNSURE]);
+  var start = all.some(function (p) { return p.id === want; }) ? want : 'medium';
   form.querySelector('input[name="package"][value="' + start + '"]').checked = true;
 
   // Dates: earliest is tomorrow
@@ -92,21 +81,10 @@ var UNSURE = { id: 'unsure', name: 'Not sure yet', price: 0, inc: [] };
     ADDONS.forEach(function (a) {
       var label = form.querySelector('[data-addon="' + a.id + '"]');
       var input = label.querySelector('input');
-      var included = pkg.inc.indexOf(a.id) !== -1;
-      label.classList.toggle('included', included);
-      input.disabled = included;
-      if (included) input.checked = false;
-      label.querySelector('.chk-price').textContent = included ? 'Included' : '+' + fmt(a.price);
-      label.querySelector('.box').style.color = included ? '#fff' : '';
-      if (input.checked) { lines.push(a); total += a.price; }
+      var price = addonPrice(a, pkg);
+      label.querySelector('.chk-price').textContent = price == null ? 'By size' : '+' + fmt(price);
+      if (input.checked) { lines.push({ name: a.name, price: price }); total += price || 0; }
     });
-
-    // Twilight time option only when twilight is part of the order
-    var twilight = pkg.inc.indexOf('twilight') !== -1 || form.querySelector('input[name="addon"][value="twilight"]').checked;
-    var twOpt = document.getElementById('twilight-opt');
-    twOpt.hidden = !twilight; twOpt.disabled = !twilight;
-    var timeSel = document.getElementById('time');
-    if (!twilight && timeSel.value === twOpt.value) timeSel.selectedIndex = 0;
 
     // Access-dependent fields
     var access = form.querySelector('input[name="access"]:checked').value;
@@ -116,17 +94,17 @@ var UNSURE = { id: 'unsure', name: 'Not sure yet', price: 0, inc: [] };
     document.getElementById('sum-name').textContent = pkg.name;
     document.getElementById('sum-price').textContent = pkg.id === 'unsure' ? 'To confirm' : fmt(pkg.price);
     document.getElementById('sum-lines').innerHTML = lines.map(function (a) {
-      return '<div class="sum-line"><span>' + esc(a.name) + '</span><span>+' + fmt(a.price) + '</span></div>';
+      return '<div class="sum-line"><span>' + esc(a.name) + '</span><span>' + (a.price == null ? 'By size' : '+' + fmt(a.price)) + '</span></div>';
     }).join('');
     var date = document.getElementById('date').value;
-    document.getElementById('sum-when').textContent = date ? niceDate(date) + ', ' + timeSel.value : 'No date picked yet';
+    document.getElementById('sum-when').textContent = date ? niceDate(date) + ', ' + document.getElementById('time').value : 'No date picked yet';
     document.getElementById('sum-access').textContent = 'Access: ' + access.toLowerCase();
-    var totalText = pkg.id === 'unsure' ? (lines.length ? fmt(total) + '+' : 'TBC') : fmt(total);
+    var totalText = pkg.id === 'unsure' ? 'TBC' : fmt(total);
     document.getElementById('sum-total').textContent = totalText;
     var bar = document.getElementById('bar-total');
     if (bar) { bar.textContent = totalText; document.getElementById('bar-name').textContent = pkg.name; }
 
-    return { pkg: pkg, lines: lines, total: total, access: access, date: date, time: timeSel.value };
+    return { pkg: pkg, lines: lines, total: total, access: access, date: date, time: document.getElementById('time').value };
   }
 
   form.addEventListener('change', update);
@@ -137,11 +115,11 @@ var UNSURE = { id: 'unsure', name: 'Not sure yet', price: 0, inc: [] };
     var get = function (n) { var el = form.elements[n]; return el && el.value ? el.value : ''; };
     var out = [
       'Package: ' + o.pkg.name + (o.pkg.price ? ' (' + fmt(o.pkg.price) + ')' : ''),
-      'Add-ons: ' + (o.lines.length ? o.lines.map(function (a) { return a.name + ' (+' + fmt(a.price) + ')'; }).join(', ') : 'None'),
+      'Add-ons: ' + (o.lines.length ? o.lines.map(function (a) { return a.name + (a.price == null ? ' (price by size)' : ' (+' + fmt(a.price) + ')'); }).join(', ') : 'None'),
       'Total (incl. GST): ' + (o.pkg.id === 'unsure' ? 'To confirm' : fmt(o.total)),
       '',
       'Address: ' + get('address'),
-      'Property: ' + get('property_type') + ', ' + get('bedrooms') + ' bed, ' + get('occupancy'),
+      'Property: ' + get('property_type') + ', ' + get('occupancy'),
       'Access: ' + o.access
     ];
     if (o.access === 'Key box') out.push('Key box code: ' + get('keybox_code'), 'Key box location: ' + get('keybox_location'));

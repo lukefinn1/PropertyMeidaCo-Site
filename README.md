@@ -13,7 +13,7 @@ Live site: https://propertymediaco.com (hosted on GitHub Pages from the `main` b
 - `CNAME` – custom domain for GitHub Pages
 
 ## Updating prices
-Prices appear in `index.html` (package cards, value breakdown, singles and add-ons) **and** in the lists at the top of `assets/js/book.js`. Change both.
+Prices appear in `index.html` (the three size cards **and** the mobile comparison table) and in the `PACKAGES` and `ADDONS` lists at the top of `assets/js/book.js`. Change all three.
 
 ## Booking emails
 Bookings are sent with Formspree. Put your form endpoint in `FORM_ENDPOINT` at the top of `assets/js/book.js`. Until then, the form opens the visitor's email app addressed to luke@propertymediaco.com.
