@@ -11,27 +11,53 @@
 <meta property="og:description" content="Photos, drone and floor plans. One flat price, delivered within 24 hours.">
 <meta property="og:image" content="https://propertymediaco.com/assets/img/og-image.jpg">
 <meta property="og:url" content="https://propertymediaco.com/">
-<meta name="theme-color" content="#10201A">
+<meta name="theme-color" content="#121A16">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="preload" as="image" href="assets/img/hero-dusk-aerial.jpg" imagesrcset="assets/img/hero-dusk-aerial-sm.jpg 1000w, assets/img/hero-dusk-aerial.jpg 2400w" imagesizes="100vw">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
-<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;700;800;900&amp;family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800;900&amp;family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
 <style>
-body{margin:0;background:#FBFAF6;color:#10201A;font-family:Inter,system-ui,sans-serif;-webkit-font-smoothing:antialiased}
-a{color:#B9461C}a:hover{color:#8E3412}
+body{margin:0;background:#FAF8F3;color:#121A16;font-family:Inter,system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+a{color:#7A5C30}a:hover{color:#5C4422}
 img{display:block;max-width:100%}
-.pkg-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;align-items:stretch}
-.val-grid{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:18px}
+h1,h2,h3,p{text-wrap:pretty}
+em{font-style:normal}
+h2 em,blockquote em{color:#7A5C30}
+#showcase h3 em{color:#E7D6B8}
+.wrap{max-width:1240px;margin:0 auto;padding:0 clamp(20px,4vw,48px)}
+.nav-links{display:flex;align-items:center;gap:34px}
+.split{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:clamp(40px,6vw,96px)}
+.why-row{display:grid;grid-template-columns:56px minmax(0,1fr) minmax(0,1.3fr);gap:8px 24px;padding:26px 0;border-top:1px solid #DCD5C7;align-items:baseline}
+.val-grid{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:24px}
 @media (max-width:1100px){.val-grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
-.quote-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
-.field{display:flex;flex-direction:column;gap:6px;font-size:14px;font-weight:600}
-.field input,.field select,.field textarea{font:inherit;font-weight:400;font-size:16px;padding:12px 14px;min-height:48px;box-sizing:border-box;border:1.5px solid #D6D1C4;border-radius:10px;background:#FBFAF6;color:#10201A}
-.port-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
-.port-grid img{width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:14px}
-@media (max-width:900px){.port-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
-@media (max-width:900px){.pkg-grid{grid-template-columns:minmax(0,1fr)}.val-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.quote-grid{grid-template-columns:minmax(0,1fr)}}
-@media (max-width:520px){.val-grid{grid-template-columns:minmax(0,1fr)}}
+@media (max-width:700px){.val-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:440px){.val-grid{grid-template-columns:minmax(0,1fr)}}
+.single-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(260px,100%),1fr));column-gap:48px}
+.pkg-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(320px,100%),1fr));gap:24px;align-items:stretch}
+.show-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(300px,100%),1fr));gap:28px}
+.price-table{display:grid;grid-template-columns:repeat(3,minmax(0,1fr))}
+.work{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));grid-auto-rows:118px;grid-auto-flow:dense;gap:14px}
+.work img{width:100%;height:100%;object-fit:cover}
+.w-lead{grid-column:span 4;grid-row:span 4}
+.w-sq{grid-column:span 2;grid-row:span 2}
+.w-tall{grid-column:span 2;grid-row:span 3}
+.form-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:28px 28px}
+.field{display:flex;flex-direction:column;gap:8px;font-size:12px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:#A9B2AC}
+.field input,.field select,.field textarea{font:inherit;font-size:16px;font-weight:400;letter-spacing:0;text-transform:none;color:#FAF8F3;background:#121A16;border:0;border-bottom:1px solid #4A5650;border-radius:0;padding:10px 0 12px;min-height:46px;box-sizing:border-box}
+.field textarea{resize:vertical}
+.field input:focus,.field select:focus,.field textarea:focus{outline:none;border-bottom-color:#C9A877}
+.span-2{grid-column:1 / -1}
+@media (max-width:900px){
+  .split{grid-template-columns:minmax(0,1fr)}
+  .why-row{grid-template-columns:44px minmax(0,1fr)}
+  .why-row p{grid-column:2}
+  .work{grid-template-columns:repeat(2,minmax(0,1fr));grid-auto-rows:110px}
+  .w-lead{grid-column:span 2;grid-row:span 3}
+  .w-sq,.w-tall{grid-column:span 1;grid-row:span 2}
+}
+@media (max-width:760px){.nav-links{display:none}}
+@media (max-width:560px){.form-grid{grid-template-columns:minmax(0,1fr)}.price-table{grid-template-columns:minmax(0,1fr)}}
 </style>
 <style>html{scroll-behavior:smooth}</style>
 <!-- Google Analytics -->
@@ -45,237 +71,271 @@ img{display:block;max-width:100%}
 <script src="assets/js/analytics.js" defer></script>
 </head>
 <body>
-<div style="width: 100%; font-family: Inter, system-ui, sans-serif; color: #10201A; background: #FBFAF6">
-
-<!-- NAV -->
-<header style="padding: 18px clamp(20px, 4vw, 48px); border-bottom: 1px solid #E4E0D5">
-  <div style="max-width: 1200px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; gap: 20px; flex-wrap: wrap">
-    <a href="#top" style="font-family: Archivo, sans-serif; font-weight: 900; font-size: 19px; text-transform: uppercase; color: #10201A; text-decoration: none">Property Media Co</a>
-    <nav aria-label="Main" style="display: flex; align-items: center; gap: 26px; flex-wrap: wrap; font-size: 15px; font-weight: 500">
-      <a href="#pricing" style="color: #10201A; text-decoration: none">Packages</a>
-      <a href="#showcase" style="color: #10201A; text-decoration: none">Add-ons</a>
-      <a href="#work" style="color: #10201A; text-decoration: none">Work</a>
-      <a href="#contact" style="color: #10201A; text-decoration: none">Contact</a>
-      <a href="#contact" style="display: inline-flex; align-items: center; min-height: 44px; padding: 0 22px; background: #EE6B3B; color: #10201A; font-weight: 700; text-decoration: none; border-radius: 999px">Book now</a>
-    </nav>
-  </div>
-</header>
+<div style="width: 100%; background: #FAF8F3; color: #121A16; font-family: Inter, system-ui, sans-serif">
 
 <!-- HERO -->
+<section id="top" data-sec="hero" style="position: relative; min-height: 820px; display: flex; flex-direction: column; color: #FAF8F3; overflow: hidden">
+  <img src="assets/img/hero-dusk-aerial.jpg" srcset="assets/img/hero-dusk-aerial-sm.jpg 1000w, assets/img/hero-dusk-aerial.jpg 2400w" sizes="100vw" alt="" fetchpriority="high" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 8%">
+  <div style="position: absolute; inset: 0; background: linear-gradient(to top, rgba(10,14,12,.86) 0%, rgba(10,14,12,.42) 48%, rgba(10,14,12,.5) 100%)"></div>
 
+  <header class="wrap" style="position: relative; width: 100%; box-sizing: border-box; padding-top: 28px; padding-bottom: 28px; display: flex; align-items: center; justify-content: space-between; gap: 24px">
+    <a href="#top" style="color: #FAF8F3; text-decoration: none; font-size: 13px; font-weight: 700; letter-spacing: 0.26em; text-transform: uppercase">Property Media Co</a>
+    <nav aria-label="Main" style="display: flex; align-items: center; gap: 34px">
+      <div class="nav-links" style="font-size: 14px; font-weight: 500">
+        <a href="#pricing" style="color: #FAF8F3; text-decoration: none">Packages</a>
+        <a href="#showcase" style="color: #FAF8F3; text-decoration: none">Add-ons</a>
+        <a href="#work" style="color: #FAF8F3; text-decoration: none">Work</a>
+      </div>
+      <a href="#contact" style="display: inline-flex; align-items: center; min-height: 44px; padding: 0 20px; border: 1px solid rgba(250,248,243,.7); color: #FAF8F3; font-size: 14px; font-weight: 600; text-decoration: none">Book a shoot</a>
+    </nav>
+  </header>
 
-<!-- VALUE POINTS -->
-<section id="top" data-sec="hero" style="position: relative; padding: clamp(88px, 11vw, 160px) clamp(20px, 4vw, 48px); color: #FBFAF6; overflow: hidden">
-  <img src="assets/img/hero-dusk-aerial.jpg" srcset="assets/img/hero-dusk-aerial-sm.jpg 1000w, assets/img/hero-dusk-aerial.jpg 2400w" sizes="100vw" alt="" fetchpriority="high" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 4%">
-  <div style="position: absolute; inset: 0; background: rgba(16,32,26,.52)"></div>
-  <div style="position: relative; max-width: 900px; margin: 0 auto; text-align: center; display: flex; flex-direction: column; align-items: center; gap: 22px">
-    <span style="font-size: 13px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: #F6C2A9">Cairns &amp; Far North Queensland</span>
-    <h1 style="margin: 0; font-family: Archivo, sans-serif; font-weight: 900; font-size: clamp(42px, 6vw, 84px); line-height: 0.98; letter-spacing: -0.035em">Listing media for agents in FNQ.</h1>
-    <p style="margin: 0; font-size: clamp(17px, 1.6vw, 21px); line-height: 1.5; color: #E3E8E5">Photos, drone and floor plans. One flat price, delivered within 24 hours.</p>
-    <div style="display: flex; gap: 12px; flex-wrap: wrap; justify-content: center; padding-top: 4px">
-      <a href="#pricing" style="display: inline-flex; align-items: center; justify-content: center; min-height: 54px; padding: 0 30px; background: #EE6B3B; color: #10201A; font-weight: 700; font-size: 16px; text-decoration: none; border-radius: 999px">View packages</a>
-      <a href="#contact" style="display: inline-flex; align-items: center; justify-content: center; min-height: 54px; padding: 0 30px; border: 1.5px solid #FBFAF6; color: #FBFAF6; font-weight: 600; font-size: 16px; text-decoration: none; border-radius: 999px">Book a shoot</a>
+  <div class="wrap" style="position: relative; width: 100%; box-sizing: border-box; margin-top: auto; padding-bottom: 56px; display: flex; flex-direction: column; gap: 28px">
+    <div style="display: flex; align-items: center; gap: 14px; font-size: 12px; font-weight: 600; letter-spacing: 0.24em; text-transform: uppercase; color: #E7D6B8">
+      <span style="width: 40px; height: 1px; background: #C9A877"></span>
+      <span>Cairns · Far North Queensland</span>
+    </div>
+    <h1 style="margin: 0; max-width: 980px; font-family: Archivo, sans-serif; font-weight: 800; font-size: clamp(46px, 6.4vw, 96px); line-height: 0.96; letter-spacing: -0.035em">Listing media for agents <em style="color: #E7D6B8">in FNQ.</em></h1>
+    <div style="display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 28px 48px">
+      <p style="margin: 0; max-width: 460px; font-size: 18px; line-height: 1.55; color: #E1E5E2">Photos, drone and floor plans. One flat price, delivered within 24 hours.</p>
+      <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 14px 28px">
+        <a href="#contact" style="display: inline-flex; align-items: center; justify-content: center; min-height: 54px; padding: 0 30px; background: #FAF8F3; color: #121A16; font-size: 15px; font-weight: 700; text-decoration: none">Book a shoot</a>
+        <a href="#pricing" style="display: inline-flex; align-items: center; gap: 10px; min-height: 44px; color: #FAF8F3; font-size: 15px; font-weight: 600; text-decoration: none; border-bottom: 1px solid rgba(250,248,243,.5)">View packages<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></a>
+      </div>
+    </div>
+    <div style="display: flex; flex-wrap: wrap; gap: 10px 0; border-top: 1px solid rgba(250,248,243,.25); padding-top: 20px; font-size: 13px; font-weight: 500; letter-spacing: 0.04em; color: #D4DAD6">
+      <span style="padding-right: 28px; margin-right: 28px; border-right: 1px solid rgba(250,248,243,.25)">Delivered within 24 hours</span>
+      <span style="padding-right: 28px; margin-right: 28px; border-right: 1px solid rgba(250,248,243,.25)">Unlimited edited photos</span>
+      <span>Blue sky guarantee</span>
     </div>
   </div>
-</section><section style="padding: clamp(48px, 6vw, 80px) clamp(20px, 4vw, 48px)">
-  <div style="max-width: 1200px; margin: 0 auto; display: flex; flex-direction: column; gap: 36px">
-    <h2 style="margin: 0; text-align: center; font-family: Archivo, sans-serif; font-weight: 900; font-size: clamp(28px, 3.4vw, 44px); letter-spacing: -0.02em">Built around the agent.</h2>
-    <div class="val-grid">
-      <div style="display: flex; flex-direction: column; align-items: center; text-align: center; gap: 12px; padding: 8px">
-        <span style="width: 56px; height: 56px; border-radius: 999px; background: #EFEBE1; display: flex; align-items: center; justify-content: center"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#B9461C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 2"></path></svg></span>
+</section>
+
+<!-- WHY -->
+<section style="padding: clamp(72px, 9vw, 136px) 0">
+  <div class="wrap" style="display: flex; flex-direction: column; align-items: center; gap: 48px">
+    <div style="display: flex; flex-direction: column; align-items: center; text-align: center; gap: 18px">
+      <span style="font-size: 12px; font-weight: 700; letter-spacing: 0.24em; text-transform: uppercase; color: #7A5C30">01 — Why agents book</span>
+      <h2 style="margin: 0; font-family: Archivo, sans-serif; font-weight: 800; font-size: clamp(36px, 4vw, 56px); line-height: 0.98; letter-spacing: -0.03em">Built around <em>the agent.</em></h2>
+    </div>
+    <div class="val-grid" style="width: 100%">
+      <div style="display: flex; flex-direction: column; align-items: center; text-align: center; gap: 14px; padding: 8px">
+        <span style="width: 60px; height: 60px; border-radius: 999px; background: #EFEAE0; display: flex; align-items: center; justify-content: center"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#7A5C30" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 2"></path></svg></span>
         <h3 style="margin: 0; font-family: Archivo, sans-serif; font-weight: 800; font-size: 19px">On time, every time</h3>
-        <p style="margin: 0; font-size: 15px; line-height: 1.5; color: #4A5650">We turn up when we say we will.</p>
+        <p style="margin: 0; font-size: 15px; line-height: 1.5; color: #555D58">We turn up when we say we will.</p>
       </div>
-      <div style="display: flex; flex-direction: column; align-items: center; text-align: center; gap: 12px; padding: 8px">
-        <span style="width: 56px; height: 56px; border-radius: 999px; background: #EFEBE1; display: flex; align-items: center; justify-content: center"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#B9461C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.6 13.4 13.4 20.6a2 2 0 0 1-2.8 0L3 13V3h10l7.6 7.6a2 2 0 0 1 0 2.8z"></path><circle cx="7.5" cy="7.5" r="1.5"></circle></svg></span>
+      <div style="display: flex; flex-direction: column; align-items: center; text-align: center; gap: 14px; padding: 8px">
+        <span style="width: 60px; height: 60px; border-radius: 999px; background: #EFEAE0; display: flex; align-items: center; justify-content: center"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#7A5C30" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.6 13.4 13.4 20.6a2 2 0 0 1-2.8 0L3 13V3h10l7.6 7.6a2 2 0 0 1 0 2.8z"></path><circle cx="7.5" cy="7.5" r="1.5"></circle></svg></span>
         <h3 style="margin: 0; font-family: Archivo, sans-serif; font-weight: 800; font-size: 19px">Simple, flat pricing</h3>
-        <p style="margin: 0; font-size: 15px; line-height: 1.5; color: #4A5650">Priced by bedrooms. No per-image fees.</p>
+        <p style="margin: 0; font-size: 15px; line-height: 1.5; color: #555D58">Priced by bedrooms. No per-image fees.</p>
       </div>
-      <div style="display: flex; flex-direction: column; align-items: center; text-align: center; gap: 12px; padding: 8px">
-        <span style="width: 56px; height: 56px; border-radius: 999px; background: #EFEBE1; display: flex; align-items: center; justify-content: center"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#B9461C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13 2 4 14h7l-1 8 9-12h-7z"></path></svg></span>
+      <div style="display: flex; flex-direction: column; align-items: center; text-align: center; gap: 14px; padding: 8px">
+        <span style="width: 60px; height: 60px; border-radius: 999px; background: #EFEAE0; display: flex; align-items: center; justify-content: center"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#7A5C30" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13 2 4 14h7l-1 8 9-12h-7z"></path></svg></span>
         <h3 style="margin: 0; font-family: Archivo, sans-serif; font-weight: 800; font-size: 19px">Next-day delivery</h3>
-        <p style="margin: 0; font-size: 15px; line-height: 1.5; color: #4A5650">Photos in 24 hours, or they’re free.</p>
+        <p style="margin: 0; font-size: 15px; line-height: 1.5; color: #555D58">Photos in 24 hours, or they’re free.</p>
       </div>
-      <div style="display: flex; flex-direction: column; align-items: center; text-align: center; gap: 12px; padding: 8px">
-        <span style="width: 56px; height: 56px; border-radius: 999px; background: #EFEBE1; display: flex; align-items: center; justify-content: center"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#B9461C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="7.5" cy="15.5" r="4.5"></circle><path d="m10.7 12.3 9.3-9.3"></path><path d="m16 7 3 3"></path><path d="m18 5 2 2"></path></svg></span>
+      <div style="display: flex; flex-direction: column; align-items: center; text-align: center; gap: 14px; padding: 8px">
+        <span style="width: 60px; height: 60px; border-radius: 999px; background: #EFEAE0; display: flex; align-items: center; justify-content: center"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#7A5C30" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="7.5" cy="15.5" r="4.5"></circle><path d="m10.7 12.3 9.3-9.3"></path><path d="m16 7 3 3"></path><path d="m18 5 2 2"></path></svg></span>
         <h3 style="margin: 0; font-family: Archivo, sans-serif; font-weight: 800; font-size: 19px">Tenants and keys handled</h3>
-        <p style="margin: 0; font-size: 15px; line-height: 1.5; color: #4A5650">You never need to be there.</p>
+        <p style="margin: 0; font-size: 15px; line-height: 1.5; color: #555D58">You never need to be there.</p>
       </div>
-      <div style="display: flex; flex-direction: column; align-items: center; text-align: center; gap: 12px; padding: 8px">
-        <span style="width: 56px; height: 56px; border-radius: 999px; background: #EFEBE1; display: flex; align-items: center; justify-content: center"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#B9461C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"></path></svg></span>
+      <div style="display: flex; flex-direction: column; align-items: center; text-align: center; gap: 14px; padding: 8px">
+        <span style="width: 60px; height: 60px; border-radius: 999px; background: #EFEAE0; display: flex; align-items: center; justify-content: center"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#7A5C30" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"></path></svg></span>
         <h3 style="margin: 0; font-family: Archivo, sans-serif; font-weight: 800; font-size: 19px">Blue sky guarantee</h3>
-        <p style="margin: 0; font-size: 15px; line-height: 1.5; color: #4A5650">Grey day? Every exterior gets a blue sky, free.</p>
+        <p style="margin: 0; font-size: 15px; line-height: 1.5; color: #555D58">Grey day? Every exterior gets a blue sky, free.</p>
       </div>
     </div>
   </div>
 </section>
 
 <!-- PACKAGES -->
-<section id="pricing" data-sec="packages" style="padding: clamp(56px, 7vw, 96px) clamp(20px, 4vw, 48px); background: #EFEBE1">
-  <div style="max-width: 1200px; margin: 0 auto; display: flex; flex-direction: column; gap: 36px">
-    <div style="display: flex; flex-direction: column; align-items: center; text-align: center; gap: 12px">
-      <h2 style="margin: 0; font-family: Archivo, sans-serif; font-weight: 900; font-size: clamp(32px, 4vw, 52px); line-height: 1; letter-spacing: -0.03em">Packages</h2>
-      <p style="margin: 0; font-size: 16px; color: #4A5650">One flat price by bedroom count. GST included.</p>
+<section id="pricing" data-sec="packages" style="padding: clamp(72px, 9vw, 136px) 0; background: #EFEAE0">
+  <div class="wrap" style="display: flex; flex-direction: column; gap: 56px">
+    <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-end; gap: 24px 48px">
+      <div style="display: flex; flex-direction: column; gap: 22px; max-width: 680px">
+        <span style="font-size: 12px; font-weight: 700; letter-spacing: 0.24em; text-transform: uppercase; color: #7A5C30">02 — Packages</span>
+        <h2 style="margin: 0; font-family: Archivo, sans-serif; font-weight: 800; font-size: clamp(44px, 5vw, 72px); line-height: 0.98; letter-spacing: -0.03em">One flat price, <em>by bedrooms.</em></h2>
+      </div>
+      <p style="margin: 0; max-width: 340px; font-size: 15px; line-height: 1.6; color: #555D58">GST included. Port Douglas, the Tablelands and Mission Beach: +$75 travel.</p>
     </div>
 
     <div class="pkg-grid">
-      <article style="background: #FBFAF6; border-radius: 18px; overflow: hidden; display: flex; flex-direction: column">
-        <img loading="lazy" src="assets/img/pkg-bedroom.jpg" alt="Primary bedroom with navy cushions and sliding doors to the garden" style="width: 100%; aspect-ratio: 16 / 10; object-fit: cover">
-        <div style="padding: 28px; display: flex; flex-direction: column; gap: 16px; flex-grow: 1">
-          <div style="display: flex; flex-direction: column; gap: 4px">
-            <h3 style="margin: 0; font-family: Archivo, sans-serif; font-weight: 800; font-size: 24px">1–2 Bed</h3>
-            <p style="margin: 0; font-size: 14.5px; color: #4A5650">Best for units, apartments and rentals.</p>
+      <article style="background: #FAF8F3; display: flex; flex-direction: column">
+        <img loading="lazy" src="assets/img/pkg-bedroom.jpg" alt="Primary bedroom with navy cushions and sliding doors to the garden" style="width: 100%; aspect-ratio: 4 / 3; object-fit: cover">
+        <div style="padding: 32px; display: flex; flex-direction: column; gap: 22px; flex-grow: 1">
+          <div style="display: flex; flex-direction: column; gap: 6px">
+            <h3 style="margin: 0; font-size: 13px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase">1–2 Bed</h3>
+            <p style="margin: 0; font-size: 15px; color: #555D58">Best for units, apartments and rentals.</p>
           </div>
-          <div style="font-family: Archivo, sans-serif; font-weight: 900; font-size: 56px; line-height: 1; letter-spacing: -0.03em">$299</div>
-          <ul style="margin: 0; padding: 16px 0 0; list-style: none; display: flex; flex-direction: column; gap: 10px; border-top: 1px solid #E4E0D5; font-size: 15px">
-            <li style="display: flex; gap: 10px"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#B9461C" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink: 0; margin-top: 1px"><path d="M20 6 9 17l-5-5"></path></svg><span><b>Unlimited</b> edited photos</span></li>
-            <li style="display: flex; gap: 10px"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#B9461C" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink: 0; margin-top: 1px"><path d="M20 6 9 17l-5-5"></path></svg><span>Drone photos, with nearby shops and schools pinned</span></li>
-            <li style="display: flex; gap: 10px"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#B9461C" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink: 0; margin-top: 1px"><path d="M20 6 9 17l-5-5"></path></svg><span>2D floor plan with measurements</span></li>
-            <li style="display: flex; gap: 10px"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#B9461C" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink: 0; margin-top: 1px"><path d="M20 6 9 17l-5-5"></path></svg><span>Sky and grass touch-ups</span></li>
-            <li style="display: flex; gap: 10px"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#B9461C" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink: 0; margin-top: 1px"><path d="M20 6 9 17l-5-5"></path></svg><span>Delivered within 24 hours</span></li>
+          <div style="font-family: Archivo, sans-serif; font-weight: 900; letter-spacing: -0.03em; font-size: 72px; line-height: 0.9">$299</div>
+          <ul style="margin: 0; padding: 20px 0 0; list-style: none; display: flex; flex-direction: column; gap: 12px; border-top: 1px solid #DCD5C7; font-size: 15px; line-height: 1.45">
+            <li style="display: flex; gap: 14px"><span style="flex-shrink: 0; width: 12px; height: 1px; background: #7A5C30; margin-top: 11px"></span><span>Unlimited edited photos</span></li>
+            <li style="display: flex; gap: 14px"><span style="flex-shrink: 0; width: 12px; height: 1px; background: #7A5C30; margin-top: 11px"></span><span>Drone photos, with nearby shops and schools pinned</span></li>
+            <li style="display: flex; gap: 14px"><span style="flex-shrink: 0; width: 12px; height: 1px; background: #7A5C30; margin-top: 11px"></span><span>2D floor plan with measurements</span></li>
+            <li style="display: flex; gap: 14px"><span style="flex-shrink: 0; width: 12px; height: 1px; background: #7A5C30; margin-top: 11px"></span><span>Sky and grass touch-ups</span></li>
+            <li style="display: flex; gap: 14px"><span style="flex-shrink: 0; width: 12px; height: 1px; background: #7A5C30; margin-top: 11px"></span><span>Delivered within 24 hours</span></li>
           </ul>
-          <a href="#contact" style="margin-top: auto; display: flex; align-items: center; justify-content: center; min-height: 50px; border: 1.5px solid #10201A; border-radius: 999px; color: #10201A; font-weight: 700; text-decoration: none">Book 1–2 Bed</a>
+          <a href="#contact" style="margin-top: auto; display: flex; align-items: center; justify-content: center; min-height: 52px; border: 1px solid #121A16; color: #121A16; font-size: 15px; font-weight: 700; text-decoration: none">Book 1–2 Bed</a>
         </div>
       </article>
 
-      <article style="background: #10201A; color: #FBFAF6; border-radius: 18px; overflow: hidden; display: flex; flex-direction: column; outline: 2px solid #EE6B3B; outline-offset: -2px">
-        <div style="position: relative">
-          <img loading="lazy" src="assets/img/pkg-kitchen.jpg" alt="White kitchen with stone benchtop opening to the dining area" style="width: 100%; aspect-ratio: 16 / 10; object-fit: cover">
-          <span style="position: absolute; top: 14px; left: 14px; background: #EE6B3B; color: #10201A; font-size: 11px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; padding: 6px 10px; border-radius: 999px">Most popular</span>
-        </div>
-        <div style="padding: 28px; display: flex; flex-direction: column; gap: 16px; flex-grow: 1">
-          <div style="display: flex; flex-direction: column; gap: 4px">
-            <h3 style="margin: 0; font-family: Archivo, sans-serif; font-weight: 800; font-size: 24px">3–4 Bed</h3>
-            <p style="margin: 0; font-size: 14.5px; color: #C3CEC8">Best for the typical family home.</p>
+      <article style="background: #121A16; color: #FAF8F3; display: flex; flex-direction: column">
+        <img loading="lazy" src="assets/img/pkg-kitchen.jpg" alt="White kitchen with stone benchtop opening to the dining area" style="width: 100%; aspect-ratio: 4 / 3; object-fit: cover">
+        <div style="padding: 32px; display: flex; flex-direction: column; gap: 22px; flex-grow: 1">
+          <div style="display: flex; flex-direction: column; gap: 6px">
+            <div style="display: flex; justify-content: space-between; align-items: baseline; gap: 12px">
+              <h3 style="margin: 0; font-size: 13px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase">3–4 Bed</h3>
+              <span style="font-family: Archivo, sans-serif; font-weight: 700; font-size: 18px; color: #C9A877">Most popular</span>
+            </div>
+            <p style="margin: 0; font-size: 15px; color: #B7C0BA">Best for the typical family home.</p>
           </div>
-          <div style="font-family: Archivo, sans-serif; font-weight: 900; font-size: 56px; line-height: 1; letter-spacing: -0.03em">$379</div>
-          <ul style="margin: 0; padding: 16px 0 0; list-style: none; display: flex; flex-direction: column; gap: 10px; border-top: 1px solid #2C3D35; font-size: 15px">
-            <li style="display: flex; gap: 10px"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#F0A07E" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink: 0; margin-top: 1px"><path d="M20 6 9 17l-5-5"></path></svg><span><b>Unlimited</b> edited photos</span></li>
-            <li style="display: flex; gap: 10px"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#F0A07E" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink: 0; margin-top: 1px"><path d="M20 6 9 17l-5-5"></path></svg><span>Drone photos, with nearby shops and schools pinned</span></li>
-            <li style="display: flex; gap: 10px"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#F0A07E" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink: 0; margin-top: 1px"><path d="M20 6 9 17l-5-5"></path></svg><span>2D floor plan with measurements</span></li>
-            <li style="display: flex; gap: 10px"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#F0A07E" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink: 0; margin-top: 1px"><path d="M20 6 9 17l-5-5"></path></svg><span>Sky and grass touch-ups</span></li>
-            <li style="display: flex; gap: 10px"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#F0A07E" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink: 0; margin-top: 1px"><path d="M20 6 9 17l-5-5"></path></svg><span>Delivered within 24 hours</span></li>
+          <div style="font-family: Archivo, sans-serif; font-weight: 900; letter-spacing: -0.03em; font-size: 72px; line-height: 0.9">$379</div>
+          <ul style="margin: 0; padding: 20px 0 0; list-style: none; display: flex; flex-direction: column; gap: 12px; border-top: 1px solid #2F3B35; font-size: 15px; line-height: 1.45">
+            <li style="display: flex; gap: 14px"><span style="flex-shrink: 0; width: 12px; height: 1px; background: #C9A877; margin-top: 11px"></span><span>Unlimited edited photos</span></li>
+            <li style="display: flex; gap: 14px"><span style="flex-shrink: 0; width: 12px; height: 1px; background: #C9A877; margin-top: 11px"></span><span>Drone photos, with nearby shops and schools pinned</span></li>
+            <li style="display: flex; gap: 14px"><span style="flex-shrink: 0; width: 12px; height: 1px; background: #C9A877; margin-top: 11px"></span><span>2D floor plan with measurements</span></li>
+            <li style="display: flex; gap: 14px"><span style="flex-shrink: 0; width: 12px; height: 1px; background: #C9A877; margin-top: 11px"></span><span>Sky and grass touch-ups</span></li>
+            <li style="display: flex; gap: 14px"><span style="flex-shrink: 0; width: 12px; height: 1px; background: #C9A877; margin-top: 11px"></span><span>Delivered within 24 hours</span></li>
           </ul>
-          <a href="#contact" style="margin-top: auto; display: flex; align-items: center; justify-content: center; min-height: 50px; background: #EE6B3B; border-radius: 999px; color: #10201A; font-weight: 700; text-decoration: none">Book 3–4 Bed</a>
+          <a href="#contact" style="margin-top: auto; display: flex; align-items: center; justify-content: center; min-height: 52px; background: #C9A877; color: #121A16; font-size: 15px; font-weight: 700; text-decoration: none">Book 3–4 Bed</a>
         </div>
       </article>
 
-      <article style="background: #FBFAF6; border-radius: 18px; overflow: hidden; display: flex; flex-direction: column">
-        <img loading="lazy" src="assets/img/pkg-aerial-front.jpg" alt="Drone shot of a tropical home with solar panels, palms and a timber-fenced driveway" style="width: 100%; aspect-ratio: 16 / 10; object-fit: cover">
-        <div style="padding: 28px; display: flex; flex-direction: column; gap: 16px; flex-grow: 1">
-          <div style="display: flex; flex-direction: column; gap: 4px">
-            <h3 style="margin: 0; font-family: Archivo, sans-serif; font-weight: 800; font-size: 24px">5+ Bed</h3>
-            <p style="margin: 0; font-size: 14.5px; color: #4A5650">Best for larger homes and estates.</p>
+      <article style="background: #FAF8F3; display: flex; flex-direction: column">
+        <img loading="lazy" src="assets/img/pkg-aerial-front.jpg" alt="Drone shot of a tropical home with solar panels, palms and a timber-fenced driveway" style="width: 100%; aspect-ratio: 4 / 3; object-fit: cover">
+        <div style="padding: 32px; display: flex; flex-direction: column; gap: 22px; flex-grow: 1">
+          <div style="display: flex; flex-direction: column; gap: 6px">
+            <h3 style="margin: 0; font-size: 13px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase">5+ Bed</h3>
+            <p style="margin: 0; font-size: 15px; color: #555D58">Best for larger homes and estates.</p>
           </div>
-          <div style="font-family: Archivo, sans-serif; font-weight: 900; font-size: 56px; line-height: 1; letter-spacing: -0.03em">$479</div>
-          <ul style="margin: 0; padding: 16px 0 0; list-style: none; display: flex; flex-direction: column; gap: 10px; border-top: 1px solid #E4E0D5; font-size: 15px">
-            <li style="display: flex; gap: 10px"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#B9461C" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink: 0; margin-top: 1px"><path d="M20 6 9 17l-5-5"></path></svg><span><b>Unlimited</b> edited photos</span></li>
-            <li style="display: flex; gap: 10px"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#B9461C" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink: 0; margin-top: 1px"><path d="M20 6 9 17l-5-5"></path></svg><span>Drone photos, with nearby shops and schools pinned</span></li>
-            <li style="display: flex; gap: 10px"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#B9461C" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink: 0; margin-top: 1px"><path d="M20 6 9 17l-5-5"></path></svg><span>2D floor plan with measurements</span></li>
-            <li style="display: flex; gap: 10px"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#B9461C" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink: 0; margin-top: 1px"><path d="M20 6 9 17l-5-5"></path></svg><span>Sky and grass touch-ups</span></li>
-            <li style="display: flex; gap: 10px"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#B9461C" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink: 0; margin-top: 1px"><path d="M20 6 9 17l-5-5"></path></svg><span>Delivered within 24 hours</span></li>
+          <div style="font-family: Archivo, sans-serif; font-weight: 900; letter-spacing: -0.03em; font-size: 72px; line-height: 0.9">$479</div>
+          <ul style="margin: 0; padding: 20px 0 0; list-style: none; display: flex; flex-direction: column; gap: 12px; border-top: 1px solid #DCD5C7; font-size: 15px; line-height: 1.45">
+            <li style="display: flex; gap: 14px"><span style="flex-shrink: 0; width: 12px; height: 1px; background: #7A5C30; margin-top: 11px"></span><span>Unlimited edited photos</span></li>
+            <li style="display: flex; gap: 14px"><span style="flex-shrink: 0; width: 12px; height: 1px; background: #7A5C30; margin-top: 11px"></span><span>Drone photos, with nearby shops and schools pinned</span></li>
+            <li style="display: flex; gap: 14px"><span style="flex-shrink: 0; width: 12px; height: 1px; background: #7A5C30; margin-top: 11px"></span><span>2D floor plan with measurements</span></li>
+            <li style="display: flex; gap: 14px"><span style="flex-shrink: 0; width: 12px; height: 1px; background: #7A5C30; margin-top: 11px"></span><span>Sky and grass touch-ups</span></li>
+            <li style="display: flex; gap: 14px"><span style="flex-shrink: 0; width: 12px; height: 1px; background: #7A5C30; margin-top: 11px"></span><span>Delivered within 24 hours</span></li>
           </ul>
-          <a href="#contact" style="margin-top: auto; display: flex; align-items: center; justify-content: center; min-height: 50px; border: 1.5px solid #10201A; border-radius: 999px; color: #10201A; font-weight: 700; text-decoration: none">Book 5+ Bed</a>
+          <a href="#contact" style="margin-top: auto; display: flex; align-items: center; justify-content: center; min-height: 52px; border: 1px solid #121A16; color: #121A16; font-size: 15px; font-weight: 700; text-decoration: none">Book 5+ Bed</a>
         </div>
       </article>
     </div>
 
-    <div id="showcase" style="background: #10201A; color: #FBFAF6; border-radius: 18px; padding: clamp(24px, 3.5vw, 44px); display: flex; flex-direction: column; gap: 32px; scroll-margin-top: 24px">
-      <div style="display: flex; justify-content: space-between; align-items: flex-end; gap: 20px 40px; flex-wrap: wrap">
-        <div style="display: flex; flex-direction: column; gap: 12px; max-width: 560px">
-          <span style="font-size: 13px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: #F0A07E">Add-on</span>
-          <h3 style="margin: 0; font-family: Archivo, sans-serif; font-weight: 900; font-size: clamp(30px, 3.6vw, 46px); line-height: 0.98; letter-spacing: -0.03em">The Showcase Upgrade</h3>
-          <p style="margin: 0; font-size: 17px; line-height: 1.5; color: #C3CEC8">Virtual twilight, staging and furniture removal. One add-on, delivered within 48 hours.</p>
+    <!-- SHOWCASE UPGRADE -->
+    <div id="showcase" style="background: #121A16; color: #FAF8F3; padding: clamp(28px, 4.5vw, 64px); display: flex; flex-direction: column; gap: 48px; scroll-margin-top: 24px">
+      <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-end; gap: 32px 56px">
+        <div style="display: flex; flex-direction: column; gap: 18px; max-width: 560px">
+          <span style="font-size: 12px; font-weight: 700; letter-spacing: 0.24em; text-transform: uppercase; color: #C9A877">Add-on</span>
+          <h3 style="margin: 0; font-family: Archivo, sans-serif; font-weight: 800; font-size: clamp(40px, 4.4vw, 60px); line-height: 0.98">The Showcase <em>Upgrade.</em></h3>
+          <p style="margin: 0; font-size: 16px; line-height: 1.6; color: #B7C0BA">Virtual twilight, staging and furniture removal. One add-on, delivered within 48 hours.</p>
         </div>
-        <div style="display: flex; gap: 10px; flex-wrap: wrap">
-          <div style="border: 1px solid #2C3D35; border-radius: 14px; padding: 12px 18px; display: flex; flex-direction: column; gap: 2px; min-width: 100px"><span style="font-size: 13px; color: #C3CEC8">1–2 Bed</span><span style="font-family: Archivo, sans-serif; font-weight: 900; font-size: 28px">+$99</span></div>
-          <div style="border: 1.5px solid #EE6B3B; border-radius: 14px; padding: 12px 18px; display: flex; flex-direction: column; gap: 2px; min-width: 100px"><span style="font-size: 13px; color: #C3CEC8">3–4 Bed</span><span style="font-family: Archivo, sans-serif; font-weight: 900; font-size: 28px">+$149</span></div>
-          <div style="border: 1px solid #2C3D35; border-radius: 14px; padding: 12px 18px; display: flex; flex-direction: column; gap: 2px; min-width: 100px"><span style="font-size: 13px; color: #C3CEC8">5+ Bed</span><span style="font-family: Archivo, sans-serif; font-weight: 900; font-size: 28px">+$199</span></div>
+        <div class="price-table" style="flex: 0 1 420px; min-width: 0; border-top: 1px solid #2F3B35">
+          <div style="padding: 16px 20px 0 0; display: flex; flex-direction: column; gap: 4px"><span style="font-size: 12px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: #A9B2AC">1–2 Bed</span><span style="font-family: Archivo, sans-serif; font-weight: 900; letter-spacing: -0.03em; font-size: 38px; line-height: 1">+$49</span></div>
+          <div style="padding: 16px 20px 0; border-left: 1px solid #2F3B35; display: flex; flex-direction: column; gap: 4px"><span style="font-size: 12px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: #A9B2AC">3–4 Bed</span><span style="font-family: Archivo, sans-serif; font-weight: 900; letter-spacing: -0.03em; font-size: 38px; line-height: 1">+$79</span></div>
+          <div style="padding: 16px 0 0 20px; border-left: 1px solid #2F3B35; display: flex; flex-direction: column; gap: 4px"><span style="font-size: 12px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: #A9B2AC">5+ Bed</span><span style="font-family: Archivo, sans-serif; font-weight: 900; letter-spacing: -0.03em; font-size: 38px; line-height: 1">+$109</span></div>
         </div>
       </div>
 
-      <div class="pkg-grid">
-        <div style="min-width: 0; display: flex; flex-direction: column; gap: 14px">
-          <div style="position: relative; aspect-ratio: 4 / 3; border-radius: 14px; overflow: hidden">
+      <div class="show-grid">
+        <figure style="margin: 0; min-width: 0; display: flex; flex-direction: column; gap: 18px">
+          <div style="position: relative; aspect-ratio: 4 / 3; overflow: hidden">
             <img loading="lazy" src="assets/img/pool-twilight.jpg" alt="Pool at twilight with warm interior lights glowing through the glass doors" style="width: 100%; height: 100%; object-fit: cover">
-            <span style="position: absolute; left: 10px; bottom: 10px; background: #F0A07E; color: #10201A; font-size: 11px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; padding: 5px 9px; border-radius: 999px">Twilight</span>
+            <span style="position: absolute; left: 12px; bottom: 12px; background: rgba(18,26,22,.82); color: #FAF8F3; font-size: 11px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; padding: 6px 10px">Twilight</span>
           </div>
-          <div style="display: flex; flex-direction: column; gap: 4px"><h4 style="margin: 0; font-family: Archivo, sans-serif; font-weight: 800; font-size: 20px">Virtual twilight</h4><p style="margin: 0; font-size: 15px; color: #C3CEC8">Up to 3 dusk shots.</p></div>
-        </div>
-        <div style="min-width: 0; display: flex; flex-direction: column; gap: 14px">
-          <div style="display: flex; gap: 5px; aspect-ratio: 4 / 3">
-            <div style="flex: 1; position: relative; min-width: 0; border-radius: 14px 0 0 14px; overflow: hidden"><img loading="lazy" src="assets/img/staging-before.jpg" alt="Empty family room with tiled floor and a wide window" style="width: 100%; height: 100%; object-fit: cover"><span style="position: absolute; left: 10px; bottom: 10px; background: rgba(16,32,26,.82); color: #FBFAF6; font-size: 11px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; padding: 5px 9px; border-radius: 999px">Before</span></div>
-            <div style="flex: 1; position: relative; min-width: 0; border-radius: 0 14px 14px 0; overflow: hidden"><img loading="lazy" src="assets/img/staging-after.jpg" alt="Same family room virtually staged with a grey sofa, armchairs, jute rug and coffee table" style="width: 100%; height: 100%; object-fit: cover"><span style="position: absolute; left: 10px; bottom: 10px; background: #F0A07E; color: #10201A; font-size: 11px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; padding: 5px 9px; border-radius: 999px">After</span></div>
+          <figcaption style="display: flex; flex-direction: column; gap: 4px"><span style="font-size: 17px; font-weight: 600">Virtual twilight</span><span style="font-size: 15px; color: #B7C0BA">Up to 3 dusk shots.</span></figcaption>
+        </figure>
+        <figure style="margin: 0; min-width: 0; display: flex; flex-direction: column; gap: 18px">
+          <div style="display: flex; gap: 3px; aspect-ratio: 4 / 3">
+            <div style="flex: 1; position: relative; min-width: 0; overflow: hidden"><img loading="lazy" src="assets/img/staging-before.jpg" alt="Empty family room with tiled floor and a wide window" style="width: 100%; height: 100%; object-fit: cover"><span style="position: absolute; left: 12px; bottom: 12px; background: rgba(18,26,22,.82); color: #FAF8F3; font-size: 11px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; padding: 6px 10px">Before</span></div>
+            <div style="flex: 1; position: relative; min-width: 0; overflow: hidden"><img loading="lazy" src="assets/img/staging-after.jpg" alt="Same family room virtually staged with a grey sofa, armchairs, jute rug and coffee table" style="width: 100%; height: 100%; object-fit: cover"><span style="position: absolute; left: 12px; bottom: 12px; background: #C9A877; color: #121A16; font-size: 11px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; padding: 6px 10px">After</span></div>
           </div>
-          <div style="display: flex; flex-direction: column; gap: 4px"><h4 style="margin: 0; font-family: Archivo, sans-serif; font-weight: 800; font-size: 20px">Virtual staging</h4><p style="margin: 0; font-size: 15px; color: #C3CEC8">Every living area and bedroom.</p></div>
-        </div>
-        <div style="min-width: 0; display: flex; flex-direction: column; gap: 14px">
-          <div style="display: flex; gap: 5px; aspect-ratio: 4 / 3">
-            <div style="flex: 1; position: relative; min-width: 0; border-radius: 14px 0 0 14px; overflow: hidden"><img loading="lazy" src="assets/img/declutter-before.jpg" alt="Tenanted family room full of toys, a rug, couch and TV unit" style="width: 100%; height: 100%; object-fit: cover"><span style="position: absolute; left: 10px; bottom: 10px; background: rgba(16,32,26,.82); color: #FBFAF6; font-size: 11px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; padding: 5px 9px; border-radius: 999px">Before</span></div>
-            <div style="flex: 1; position: relative; min-width: 0; border-radius: 0 14px 14px 0; overflow: hidden"><img loading="lazy" src="assets/img/declutter-after.jpg" alt="Same family room with all furniture and clutter removed" style="width: 100%; height: 100%; object-fit: cover"><span style="position: absolute; left: 10px; bottom: 10px; background: #F0A07E; color: #10201A; font-size: 11px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; padding: 5px 9px; border-radius: 999px">After</span></div>
+          <figcaption style="display: flex; flex-direction: column; gap: 4px"><span style="font-size: 17px; font-weight: 600">Virtual staging</span><span style="font-size: 15px; color: #B7C0BA">Every living area and bedroom.</span></figcaption>
+        </figure>
+        <figure style="margin: 0; min-width: 0; display: flex; flex-direction: column; gap: 18px">
+          <div style="display: flex; gap: 3px; aspect-ratio: 4 / 3">
+            <div style="flex: 1; position: relative; min-width: 0; overflow: hidden"><img loading="lazy" src="assets/img/declutter-before.jpg" alt="Tenanted family room full of toys, a rug, couch and TV unit" style="width: 100%; height: 100%; object-fit: cover"><span style="position: absolute; left: 12px; bottom: 12px; background: rgba(18,26,22,.82); color: #FAF8F3; font-size: 11px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; padding: 6px 10px">Before</span></div>
+            <div style="flex: 1; position: relative; min-width: 0; overflow: hidden"><img loading="lazy" src="assets/img/declutter-after.jpg" alt="Same family room with all furniture and clutter removed" style="width: 100%; height: 100%; object-fit: cover"><span style="position: absolute; left: 12px; bottom: 12px; background: #C9A877; color: #121A16; font-size: 11px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; padding: 6px 10px">After</span></div>
           </div>
-          <div style="display: flex; flex-direction: column; gap: 4px"><h4 style="margin: 0; font-family: Archivo, sans-serif; font-weight: 800; font-size: 20px">Furniture and clutter removal</h4><p style="margin: 0; font-size: 15px; color: #C3CEC8">Messy tenant? Gone in post.</p></div>
-        </div>
+          <figcaption style="display: flex; flex-direction: column; gap: 4px"><span style="font-size: 17px; font-weight: 600">Furniture and clutter removal</span><span style="font-size: 15px; color: #B7C0BA">Messy tenant? Gone in post.</span></figcaption>
+        </figure>
       </div>
     </div>
-    <p style="margin: 0; text-align: center; font-size: 14px; color: #4A5650">Port Douglas, the Tablelands and Mission Beach: +$75 travel.</p>
+
+    <!-- SINGLE SERVICES -->
+    <div style="display: flex; flex-direction: column; gap: 24px">
+      <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: 8px 32px">
+        <h3 style="margin: 0; font-family: Archivo, sans-serif; font-weight: 800; font-size: 28px; letter-spacing: -0.02em">Single services</h3>
+        <p style="margin: 0; font-size: 15px; color: #555D58">Just need photos or video? Book them on their own.</p>
+      </div>
+      <div class="single-grid" style="border-top: 1px solid #121A16">
+        <div style="display: flex; justify-content: space-between; align-items: baseline; gap: 16px; padding: 22px 0; border-bottom: 1px solid #DCD5C7"><span style="font-size: 16px; font-weight: 600">Up to 20 photos</span><span style="font-family: Archivo, sans-serif; font-weight: 900; font-size: 30px; letter-spacing: -0.03em">$250</span></div>
+        <div style="display: flex; justify-content: space-between; align-items: baseline; gap: 16px; padding: 22px 0; border-bottom: 1px solid #DCD5C7"><span style="font-size: 16px; font-weight: 600">Up to 30 photos</span><span style="font-family: Archivo, sans-serif; font-weight: 900; font-size: 30px; letter-spacing: -0.03em">$319</span></div>
+        <div style="display: flex; justify-content: space-between; align-items: baseline; gap: 16px; padding: 22px 0; border-bottom: 1px solid #DCD5C7"><span style="font-size: 16px; font-weight: 600">Up to 45 photos</span><span style="font-family: Archivo, sans-serif; font-weight: 900; font-size: 30px; letter-spacing: -0.03em">$419</span></div>
+        <div style="display: flex; justify-content: space-between; align-items: baseline; gap: 16px; padding: 22px 0; border-bottom: 1px solid #DCD5C7"><span style="font-size: 16px; font-weight: 600">Listing video</span><span style="font-family: Archivo, sans-serif; font-weight: 900; font-size: 30px; letter-spacing: -0.03em">$499</span></div>
+      </div>
+    </div>
   </div>
 </section>
 
 <!-- WORK -->
-<section id="work" data-sec="work" style="padding: clamp(56px, 7vw, 96px) clamp(20px, 4vw, 48px)">
-  <div style="max-width: 1200px; margin: 0 auto; display: flex; flex-direction: column; gap: 22px">
-    <div style="display: flex; justify-content: space-between; align-items: flex-end; gap: 16px; flex-wrap: wrap">
-      <h2 style="margin: 0; font-family: Archivo, sans-serif; font-weight: 900; font-size: clamp(28px, 3.2vw, 42px); letter-spacing: -0.02em">Recent work</h2>
-      <a href="https://instagram.com/thelukefinn" style="font-weight: 700; font-size: 15px">Instagram</a>
+<section id="work" data-sec="work" style="padding: clamp(72px, 9vw, 136px) 0">
+  <div class="wrap" style="display: flex; flex-direction: column; gap: 48px">
+    <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-end; gap: 20px 48px">
+      <div style="display: flex; flex-direction: column; gap: 22px">
+        <span style="font-size: 12px; font-weight: 700; letter-spacing: 0.24em; text-transform: uppercase; color: #7A5C30">03 — Portfolio</span>
+        <h2 style="margin: 0; font-family: Archivo, sans-serif; font-weight: 800; font-size: clamp(44px, 5vw, 72px); line-height: 0.98; letter-spacing: -0.03em">Recent <em>work.</em></h2>
+      </div>
+      <a href="https://instagram.com/thelukefinn" style="display: inline-flex; align-items: center; gap: 10px; min-height: 44px; font-size: 15px; font-weight: 600; text-decoration: none; border-bottom: 1px solid currentColor">More on Instagram<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></a>
     </div>
-    <div class="port-grid">
-      <img loading="lazy" src="assets/img/pool-twilight.jpg" alt="Pool at twilight with warm interior lights glowing through the glass doors">
-      <img loading="lazy" src="assets/img/work-aerial-street.jpg" alt="Drone shot of a tropical home on a quiet street with a mountain behind">
-      <img loading="lazy" src="assets/img/work-living-room.jpg" alt="Bright living room with cream sofa, blue armchairs and a pool view">
-      <img loading="lazy" src="assets/img/work-bedroom.jpg" alt="Styled bedroom with coastal artwork, textured cushions and a fiddle-leaf fig by the sliding door">
-      <img loading="lazy" src="assets/img/work-dining.jpg" alt="Round dining table with timber chairs beside glass doors">
-      <img loading="lazy" src="assets/img/work-covered-patio.jpg" alt="Covered timber patio with outdoor dining and lounge chairs">
+    <div class="work">
+      <img loading="lazy" class="w-lead" src="assets/img/pool-twilight.jpg" alt="Pool at twilight with warm interior lights glowing through the glass doors">
+      <img loading="lazy" class="w-sq" src="assets/img/work-aerial-street.jpg" alt="Drone shot of a tropical home on a quiet street with a mountain behind">
+      <img loading="lazy" class="w-sq" src="assets/img/work-living-room.jpg" alt="Bright living room with cream sofa, blue armchairs and a pool view">
+      <img loading="lazy" class="w-tall" src="assets/img/work-dining.jpg" alt="Round dining table with timber chairs beside glass doors">
+      <img loading="lazy" class="w-tall" src="assets/img/work-covered-patio.jpg" alt="Covered timber patio with outdoor dining and lounge chairs">
+      <img loading="lazy" class="w-tall" src="assets/img/work-bedroom.jpg" alt="Styled bedroom with coastal artwork, textured cushions and a fiddle-leaf fig by the sliding door">
     </div>
   </div>
 </section>
 
 <!-- TESTIMONIAL -->
-<section style="padding: clamp(48px, 6vw, 80px) clamp(20px, 4vw, 48px); background: #EFEBE1">
-  <figure style="max-width: 760px; margin: 0 auto; display: flex; flex-direction: column; align-items: center; text-align: center; gap: 18px">
-    <blockquote style="margin: 0; font-family: Archivo, sans-serif; font-weight: 700; font-size: clamp(22px, 2.4vw, 30px); line-height: 1.35; letter-spacing: -0.01em">“He captured the apartment beautifully, and the edited photos were back with me the very next day.”</blockquote>
-    <figcaption style="font-size: 15px"><b>Emma</b><span style="color: #4A5650"> · Holiday apartment owner, Palm Cove</span></figcaption>
+<section style="padding: clamp(72px, 9vw, 128px) 0; background: #EFEAE0">
+  <figure class="wrap" style="margin: 0 auto; max-width: 1000px; display: flex; flex-direction: column; align-items: center; text-align: center; gap: 28px">
+    <span aria-hidden="true" style="font-family: Archivo, sans-serif; font-weight: 900; letter-spacing: -0.03em; font-size: 96px; line-height: 0.5; color: #7A5C30; height: 40px">“</span>
+    <blockquote style="margin: 0; font-family: Archivo, sans-serif; font-weight: 700; font-size: clamp(26px, 3vw, 40px); line-height: 1.25; letter-spacing: -0.015em">He captured the apartment beautifully, and the edited photos were back with me <em>the very next day.</em></blockquote>
+    <figcaption style="display: flex; flex-direction: column; gap: 4px; font-size: 14px"><span style="font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase">Emma</span><span style="color: #555D58">Holiday apartment owner, Palm Cove</span></figcaption>
   </figure>
 </section>
 
 <!-- CONTACT -->
-<section id="contact" data-sec="contact" style="padding: clamp(56px, 7vw, 104px) clamp(20px, 4vw, 48px)">
-  <div style="max-width: 1200px; margin: 0 auto; display: flex; flex-wrap: wrap; gap: clamp(32px, 5vw, 64px)">
-    <div style="flex: 1 1 340px; min-width: 0; display: flex; flex-direction: column; gap: 18px">
-      <h2 style="margin: 0; font-family: Archivo, sans-serif; font-weight: 900; font-size: clamp(32px, 4vw, 52px); line-height: 1; letter-spacing: -0.03em">Book your next listing.</h2>
-      <p style="margin: 0; font-size: 17px; line-height: 1.55; color: #33413A">Send the details and we’ll confirm your shoot time the same business day.</p>
-      <div style="display: flex; flex-direction: column; gap: 10px; padding-top: 10px; font-size: 16px">
-        <a href="mailto:luke@propertymediaco.com" style="font-weight: 700">luke@propertymediaco.com</a>
-        <a href="https://instagram.com/thelukefinn" style="font-weight: 700">@thelukefinn on Instagram</a>
+<section id="contact" data-sec="contact" style="padding: clamp(72px, 9vw, 136px) 0; background: #121A16; color: #FAF8F3">
+  <div class="wrap split">
+    <div style="display: flex; flex-direction: column; gap: 24px">
+      <span style="font-size: 12px; font-weight: 700; letter-spacing: 0.24em; text-transform: uppercase; color: #C9A877">04 — Book</span>
+      <h2 style="margin: 0; font-family: Archivo, sans-serif; font-weight: 800; font-size: clamp(48px, 5.4vw, 80px); line-height: 0.96; letter-spacing: -0.03em">Book your next <em style="color: #E7D6B8">listing.</em></h2>
+      <p style="margin: 0; max-width: 400px; font-size: 17px; line-height: 1.6; color: #B7C0BA">Send the details and we’ll confirm your shoot time the same business day.</p>
+      <div style="display: flex; flex-direction: column; gap: 12px; padding-top: 12px; font-size: 16px">
+        <a href="mailto:luke@propertymediaco.com" style="color: #E7D6B8; font-weight: 600; text-decoration: none; border-bottom: 1px solid rgba(231,214,184,.4); align-self: flex-start; padding: 6px 0">luke@propertymediaco.com</a>
+        <a href="https://instagram.com/thelukefinn" style="color: #E7D6B8; font-weight: 600; text-decoration: none; border-bottom: 1px solid rgba(231,214,184,.4); align-self: flex-start; padding: 6px 0">@thelukefinn on Instagram</a>
       </div>
     </div>
-    <form id="booking" style="flex: 1.4 1 480px; min-width: 0; background: #EFEBE1; border-radius: 18px; padding: clamp(22px, 3vw, 36px); display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px">
+    <form id="booking" class="form-grid" style="align-content: start">
       <label class="field">Name<input type="text" name="name" autocomplete="name" required></label>
       <label class="field">Agency<input type="text" name="agency" autocomplete="organization"></label>
       <label class="field">Email<input type="email" name="email" autocomplete="email" required></label>
       <label class="field">Mobile<input type="tel" name="mobile" autocomplete="tel"></label>
-      <label class="field" style="grid-column: 1 / -1">Property address<input type="text" name="address" autocomplete="street-address" required></label>
-      <label class="field">Package<select name="package"><option>1–2 Bed · $299</option><option selected="">3–4 Bed · $379</option><option>5+ Bed · $479</option></select></label>
+      <label class="field span-2">Property address<input type="text" name="address" autocomplete="street-address" required></label>
+      <label class="field">Package<select name="package"><option>1–2 Bed · $299</option><option selected="">3–4 Bed · $379</option><option>5+ Bed · $479</option><option>Up to 20 photos · $250</option><option>Up to 30 photos · $319</option><option>Up to 45 photos · $419</option><option>Listing video · $499</option></select></label>
       <label class="field">Showcase Upgrade<select name="showcase"><option>No thanks</option><option>Yes, add it</option></select></label>
-      <label class="field" style="grid-column: 1 / -1">Access and notes<textarea name="notes" rows="3" placeholder="Key box code, tenant’s number, preferred date…"></textarea></label>
-      <button type="submit" style="grid-column: 1 / -1; min-height: 54px; border: 0; border-radius: 999px; background: #EE6B3B; color: #10201A; font: inherit; font-weight: 700; font-size: 16px; cursor: pointer">Request booking</button>
+      <label class="field span-2">Access and notes<textarea name="notes" rows="2" placeholder="Key box code, tenant’s number, preferred date…"></textarea></label>
+      <button type="submit" class="span-2" style="min-height: 56px; border: 0; background: #C9A877; color: #121A16; font: inherit; font-size: 15px; font-weight: 700; letter-spacing: 0.04em; cursor: pointer">Request booking</button>
     </form>
   </div>
 </section>
 
-<footer style="padding: 32px clamp(20px, 4vw, 48px); background: #10201A; color: #C3CEC8; font-size: 14px">
-  <div style="max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; gap: 12px 32px; flex-wrap: wrap">
-    <span style="font-family: Archivo, sans-serif; font-weight: 900; font-size: 17px; text-transform: uppercase; color: #FBFAF6">Property Media Co</span>
+<footer style="padding: 36px 0 44px; background: #121A16; color: #A9B2AC; font-size: 14px">
+  <div class="wrap" style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 14px 32px; border-top: 1px solid #2F3B35; padding-top: 32px">
+    <span style="font-size: 13px; font-weight: 700; letter-spacing: 0.26em; text-transform: uppercase; color: #FAF8F3">Property Media Co</span>
     <span>Cairns &amp; Far North Queensland · All prices include GST</span>
   </div>
 </footer>
